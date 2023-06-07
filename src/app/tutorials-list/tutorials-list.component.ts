@@ -13,10 +13,10 @@ export class TutorialsListComponent implements OnInit {
 
 
   constructor(private service: TutorialsService) { }
-  displayedColumns: string[] = ['title', 'description', 'createdAt', 'updatedAt'];
+  displayedColumns: string[] = ['title', 'description', 'createdAt', 'updatedAt', 'edit','delete' ];
 
-  dataSource = null;
-  
+  dataSource: MatTableDataSource<any[]>;
+
   ngOnInit(): void {
 
 
@@ -28,7 +28,8 @@ export class TutorialsListComponent implements OnInit {
           {
             next: (response : any)=>{
               console.log(response);
-              this.dataSource =  response;
+              this.dataSource = new MatTableDataSource(response);
+
             }
           })
       },
