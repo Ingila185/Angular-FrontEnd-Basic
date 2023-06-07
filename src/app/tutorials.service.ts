@@ -15,7 +15,7 @@ export class TutorialsService {
 
 //List all tutorials
   getAllTutorials() {
-    return this.http.get(configUrl);
+    return this.http.get(configUrl+"api/tutorials");
   }
 
   //Get tutorial based on ID
