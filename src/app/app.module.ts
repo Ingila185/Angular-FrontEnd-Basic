@@ -9,6 +9,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TutorialsListComponent } from './tutorials-list/tutorials-list.component';
@@ -28,7 +36,15 @@ import {TutorialsService} from './tutorials.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatIconModule,
+    MatPaginatorModule,
+
     MatTableModule
   
   ],

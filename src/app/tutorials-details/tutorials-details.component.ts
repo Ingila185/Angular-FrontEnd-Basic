@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators , FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-tutorials-details',
@@ -6,10 +7,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tutorials-details.component.css']
 })
 export class TutorialsDetailsComponent implements OnInit {
+  //myForm: FormGroup;
 
-  constructor() { }
+  onClickSubmit(data : any)
+ {
+  console.log("Submitted");
+  console.log(data);
+}
+   
+  
+  myForm = new FormGroup({
+    tutorialName: new FormControl('',Validators.required),
+    description: new FormControl('',Validators.required),
+    tutorialIsActive : new FormControl(null,Validators.required)
+
+  })
+  constructor(private fb: FormBuilder) 
+  {
+
+  
+
+   }
+  
+ 
+ 
 
   ngOnInit(): void {
-  }
+
+  
+}
+
+
+
+get myFormControl() {
+  return this.myForm.controls;
+}
+
 
 }
+
+
+

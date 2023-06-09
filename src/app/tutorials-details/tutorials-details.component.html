@@ -1,1 +1,48 @@
-<p>tutorials-details works!</p>
+<div class = "main-page-div">
+  <mat-toolbar class = "toolbar-class" color="primary">
+     
+    <span>Tutorials Details</span>
+    
+  </mat-toolbar>
+
+  <mat-divider></mat-divider>
+
+
+  <form [formGroup]="myForm" >
+
+    <mat-form-field class="example-full-width">
+        <mat-label >Tutorial Name</mat-label>
+        <input required matInput placeholder="Tutorial Name"  
+        formControlName="tutorialName" name = "tutorialName" /> 
+
+    </mat-form-field>
+
+
+   <mat-form-field class="example-full-width">
+    <mat-label >Tutorial Decsription</mat-label>
+    <input required    matInput placeholder="Tutorial Decsription"  
+    formControlName="description"  />
+
+</mat-form-field>
+
+
+    <mat-form-field >
+    <mat-label >Is Active:</mat-label>
+    <mat-select formControlName = "tutorialIsActive" name = "tutorialIsActive">
+      <mat-option value = "1">Yes
+      </mat-option>
+      <mat-option value = "2">No
+    </mat-option>
+    </mat-select>
+  </mat-form-field>
+ 
+
+</form>
+
+<button [disabled] = "!myForm.valid" (click) = "onClickSubmit(myForm.value)" mat-raised-button color="primary" >
+    Submit
+  </button>
+<button mat-raised-button [routerLink]="['']" >
+    Back
+  </button>
+</div>
