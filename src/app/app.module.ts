@@ -16,18 +16,20 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
-
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TutorialsListComponent } from './tutorials-list/tutorials-list.component';
 import { TutorialsDetailsComponent } from './tutorials-details/tutorials-details.component';
 import {TutorialsService} from './tutorials.service';
+import { DialogComponentComponent } from './Dialog/dialog-component/dialog-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TutorialsListComponent,
-    TutorialsDetailsComponent
+    TutorialsDetailsComponent,
+    DialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -39,15 +41,17 @@ import {TutorialsService} from './tutorials.service';
     FormsModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatDialogModule,
     MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatPaginatorModule,
-
+    MatSnackBarModule,
     MatTableModule
   
   ],
+  entryComponents:[DialogComponentComponent],
   providers: [TutorialsService],
   bootstrap: [AppComponent]
 })

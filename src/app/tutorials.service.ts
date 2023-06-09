@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient } from  '@angular/common/http';
+import { HttpClient, HttpHeaders } from  '@angular/common/http';
+import { Tutorials } from './TutorialTemplate';
 const configUrl= 'http://localhost:8080/';
 
 
@@ -21,23 +22,33 @@ export class TutorialsService {
   //Get tutorial based on ID
 
   getTutorial(tutorialId : any) {
-    return this.http.get(configUrl, tutorialId);
+    return this.http.get(configUrl+"api/tutorials/"+ tutorialId);
   }
 
   //Create Tutorial
-  createTutorial(body : JSON)
+  createTutorial(body : Tutorials)
   {
-    return this.http.post(configUrl,body);
+   // console.log("Inside request");
+    //console.log(body);
+    let headers = new HttpHeaders();
+    headers = headers.set('access-control-allow-origin','*');
+    const requestOptions = {headers: headers};
+
+    return this.http.post(configUrl+ "api/tutorials",body, requestOptions);
   }
   //Update Tutorial
 
-  updateTutorial(id: any, body: JSON )
+  updateTutorial(id: any, body: Tutorials )
   {
-    return this.http.put(configUrl,body);
+    let headers = new HttpHeaders();
+    headers = headers.set('access-control-allow-origin','*');
+    const requestOptions = {headers: headers};
+
+    return this.http.put(configUrl+"api/tutorials/"+id ,body, requestOptions);
   }
   //Delete tutorial
   deleteTutorial(tutorialID:  any)
   {
-    return this.http.delete(configUrl, tutorialID);
+    return this.http.delete(configUrl + "api/tutorials/"+tutorialID );
   }
 }

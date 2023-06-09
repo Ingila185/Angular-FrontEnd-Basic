@@ -12,7 +12,13 @@ const routes: Routes =
 {
   path:'details',
   component: TutorialsDetailsComponent
+},
+
+{
+  path:'details/:state/:id',
+  component: TutorialsDetailsComponent
 }
+
 ];
 
 @NgModule({
